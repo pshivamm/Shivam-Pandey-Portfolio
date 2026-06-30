@@ -16,14 +16,16 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     lenisRef.current = lenis
 
+    let rafId: number
     const raf = (time: number) => {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      rafId = requestAnimationFrame(raf)
     }
-    requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(raf)
 
     return () => {
       lenis.destroy()
+      cancelAnimationFrame(rafId)
     }
   }, [])
 

@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   title: 'Shivam Pandey - UI/UX Designer',
   description: 'Professional portfolio of Shivam Pandey, a UI/UX Designer specializing in minimalistic and animated designs.',
   generator: 'v0.app',
+  icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
 export const viewport: Viewport = {

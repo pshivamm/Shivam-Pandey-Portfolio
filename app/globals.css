@@ -176,6 +176,17 @@ html.lenis {
   body {
     @apply bg-background text-foreground cursor-none;
   }
+
+  @media (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+    .cursor-dot,
+    .cursor-circle,
+    .cursor-trail-container {
+      display: none;
+    }
+  }
   html {
     @apply font-sans;
   }
