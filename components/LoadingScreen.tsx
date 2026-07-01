@@ -74,7 +74,7 @@ export function LoadingScreen() {
           </div>
 
           <div className="w-60 md:w-80 flex items-center gap-4">
-            <div className="flex-1 h-4 bg-muted rounded-full overflow-hidden">
+            <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
               <div
                 ref={barRef}
                 className="h-full bg-foreground rounded-full"
