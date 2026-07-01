@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ExternalLink } from 'lucide-react'
+import { useEffect } from 'react'
 import type { BehanceProject } from './Works'
 
 interface WorkModalProps {
@@ -10,6 +11,15 @@ interface WorkModalProps {
 }
 
 export function WorkModal({ work, onClose }: WorkModalProps) {
+  useEffect(() => {
+    if (work) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [work])
+
   const publishDate = work
     ? new Date(work.publishedOn * 1000).toLocaleDateString('en-US', {
         year: 'numeric',
@@ -35,6 +45,7 @@ export function WorkModal({ work, onClose }: WorkModalProps) {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-60 overflow-y-auto overscroll-y-contain scrollbar-hide"
+            style={{ WebkitOverflowScrolling: 'touch' }}
             data-lenis-prevent
           >
             <div className="min-h-full px-4 py-6 md:px-10 md:py-12">

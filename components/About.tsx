@@ -174,10 +174,10 @@ export function About() {
                 >
                   {/* Content */}
                   <div className={`w-full md:w-1/2 pl-14 md:pl-0 ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}>
-                    <div className="p-6 border border-foreground/20 rounded-2xl hover:bg-foreground/5 transition-colors flex items-start justify-between gap-5 group">
-                    <GoOrganization className='text-5xl' />
+                    <div className="p-6 border border-foreground/20 rounded-2xl hover:bg-foreground/5 transition-colors flex flex-col md:flex-row items-start justify-between gap-5 group">
+                    <GoOrganization className='text-3xl md:text-5xl' />
                       <div className="">
-                        <div className="flex items-center mb-2 justify-between gap-5">
+                        <div className="flex flex-col md:flex-row items-start md:items-center mb-2 justify-between gap-2 md:gap-5">
                           <div className="">
                             <h4 className="text-lg md:text-xl font-bold group-hover:text-foreground/80 transition-colors">
                               {exp.title}

@@ -67,6 +67,9 @@ export function Works() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className={`cursor-pointer group ${isLarge ? 'md:col-span-2 md:row-span-2' : ''}`}
                   onClick={() => setSelectedWork(work)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && setSelectedWork(work)}
                 >
                   <div className="flex flex-col h-full">
                     <div
@@ -86,7 +89,7 @@ export function Works() {
                         {work.title}
                       </h3>
                       {work.description && (
-                        <p className="text-xs text-foreground/70 line-clamp-1 mb-2">
+                        <p className="text-xs text-foreground/70 line-clamp-2 mb-2">
                           {work.description}
                         </p>
                       )}
