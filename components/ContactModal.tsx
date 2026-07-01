@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhoneAlt } from 'react-icons/fa'
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhoneAlt, FaInstagram, FaBehance } from 'react-icons/fa'
+import { FaB, FaI } from "react-icons/fa6";
 
 interface ContactModalProps {
   isOpen: boolean
@@ -14,27 +15,27 @@ const SOCIAL_LINKS = [
   {
     icon: FaEnvelope,
     label: 'Email',
-    value: 'shivam@example.com',
-    href: 'mailto:shivam@example.com',
+    value: 'shivampandey.self@gmail.com',
+    href: 'mailto:shivampandey.self@gmail.com',
   },
   {
     icon: FaPhoneAlt,
     label: 'Phone',
-    value: '+91 98765 43210',
-    href: 'tel:+919876543210',
+    value: '+91 6307989801',
+    href: 'tel:+916307989801',
   },
   {
     icon: FaLinkedin,
     label: 'LinkedIn',
     value: '@shivampandey',
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/shivam-pandey-19b927249/',
   },
   {
     icon: FaGithub,
     label: 'GitHub',
-    value: '@shivampandey',
-    href: 'https://github.com',
-  },
+    value: '@pshivamm',
+    href: 'https://github.com/pshivamm',
+  }
 ]
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
@@ -58,7 +59,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl bg-background border rounded-[34px] border-foreground/10 rounded-5xl z-50 p-8 mb-10 md:p-12"
+            className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl bg-background border rounded-[34px] border-foreground/10 rounded-5xl z-50 p-8 mb-10 md:p-12"
             data-lenis-prevent
           >
             {/* Close Button */}
@@ -87,7 +88,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </motion.div>
 
             {/* Contact Options */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 md:mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {SOCIAL_LINKS.map((link, index) => {
                 const Icon = link.icon
                 return (
@@ -119,7 +120,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
 
             {/* Large Social Icons */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -140,7 +141,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </a>
                 )
               })}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </>
       )}

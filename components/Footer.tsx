@@ -31,7 +31,7 @@ export function Footer() {
             className="flex items-center gap-3 md:gap-6"
           >
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/shivam-pandey-19b927249/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
@@ -43,7 +43,7 @@ export function Footer() {
               />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.instagram.com/synctouch.uiux"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
@@ -55,7 +55,7 @@ export function Footer() {
               />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.behance.net/shivampandey69"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
@@ -67,7 +67,7 @@ export function Footer() {
               />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/pshivamm"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
@@ -79,7 +79,7 @@ export function Footer() {
               />
             </a>
             <a
-              href="mailto:shivam@example.com"
+              href="mailto:shivampandey.self@gmail.com"
               className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
               aria-label="Email"
             >
@@ -88,6 +88,7 @@ export function Footer() {
                 className="group-hover:scale-110 transition-transform"
               />
             </a>
+            
           </motion.div>
 
           {/* Right - Address */}
@@ -100,8 +101,8 @@ export function Footer() {
             <div className="text-left md:text-right">
               <p className="text-sm text-foreground/60 mb-2">Address</p>
               <p className="text-lg font-medium text-balance">
-                123 Design Street <br />
-                Creative City, India 123456
+                Sector 71, Mohali <br />
+                Punjab, India 123456
               </p>
             </div>
           </motion.div>

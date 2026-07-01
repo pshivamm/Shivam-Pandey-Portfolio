@@ -32,7 +32,7 @@ export function Banner() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-sm md:text-md text-foreground/90 max-w-full md:max-w-4xl mx-auto leading-relaxed text-balance mt-10 md:mt-40"
+          className="text-sm md:text-md text-foreground/100 max-w-full md:max-w-4xl mx-auto leading-relaxed text-balance mt-10 md:mt-40"
         >
           Crafting beautiful, minimalistic interfaces with smooth animations and attention to detail.
           Specialized in creating user-centric designs that combine aesthetics with functionality.
@@ -66,9 +66,9 @@ export function Banner() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <p className="text-xs text-foreground/60">Scroll to explore</p>
-          <div className="w-6 h-10 border border-foreground rounded-full flex justify-center">
-            <motion.div className="w-1 h-2 bg-foreground rounded-full mt-2" />
+          <p className="text-xs text-black">Scroll to explore</p>
+          <div className="w-6 h-10 border border-black rounded-full flex justify-center">
+            <motion.div className="w-1 h-2 bg-black rounded-full mt-2" />
           </div>
         </div>
       </motion.div>
