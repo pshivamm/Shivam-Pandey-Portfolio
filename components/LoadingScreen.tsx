@@ -46,6 +46,7 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          id='loader_bg'
           className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center gap-5 md:gap-10"
         >
           <div className="flex items-center gap-1.5">
@@ -72,8 +73,8 @@ export function LoadingScreen() {
             </h1>
           </div>
 
-          <div className="w-64 md:w-80 flex items-center gap-4">
-            <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
+          <div className="w-80 md:w-100 flex items-center gap-4">
+            <div className="flex-1 h-4 bg-muted rounded-full overflow-hidden">
               <div
                 ref={barRef}
                 className="h-full bg-foreground rounded-full"

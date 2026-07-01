@@ -32,7 +32,7 @@ export function Banner() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-sm md:text-md text-foreground/70 max-w-full md:max-w-4xl mx-auto leading-relaxed text-balance mt-10 md:mt-40"
+          className="text-sm md:text-md text-foreground/90 max-w-full md:max-w-4xl mx-auto leading-relaxed text-balance mt-10 md:mt-40"
         >
           Crafting beautiful, minimalistic interfaces with smooth animations and attention to detail.
           Specialized in creating user-centric designs that combine aesthetics with functionality.

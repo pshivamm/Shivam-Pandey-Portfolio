@@ -7,8 +7,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="pt-20 mt-0 md:mt-20 pb-10 px-6 bg-foreground/5">
+    <footer id="contact" className="pt-25 pb-2 px-6 bg-foreground/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
+
         {/* Main Section */}
         <div className="flex flex-col md:flex-row items-bottom justify-between gap-6 md:gap-8 mb-10">
           {/* Left - CTA */}
@@ -115,6 +116,18 @@ export function Footer() {
         >
           <p className='mb-2 md:mb-0'> &copy; All rights reserved. {currentYear}</p>
           <p>Designed & Built by Shivam Pandey.</p>
+        </motion.div>
+
+        {/* Large Name */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mt-12 md:mt-20 -mx-6"
+        >
+          <h2 className="text-[clamp(3rem,15vw,10rem)] font-bold tracking-tight leading-none text-foreground/20 select-none text-center uppercase">
+            Shivam Pandey.
+          </h2>
         </motion.div>
       </div>
     </footer>

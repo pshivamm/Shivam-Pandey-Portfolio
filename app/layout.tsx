@@ -2,15 +2,14 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import './globals.css'
-import { Arimo, Roboto, Caveat } from 'next/font/google'
+import { Manrope, Roboto, Caveat } from 'next/font/google'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import { SmoothScroll } from '@/components/SmoothScroll'
 
-const arimo = Arimo({
-  variable: '--font-arimo',
+const manrope = Manrope({
+  variable: '--font-manrope',
   subsets: ['latin'],
   weight: ['400', '700'],
-  style: ['normal', 'italic'],
   display: 'swap',
 })
 
@@ -49,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${arimo.variable} ${roboto.variable} ${caveat.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${manrope.variable} ${roboto.variable} ${caveat.variable}`} suppressHydrationWarning>
       <Script id="theme-init" strategy="beforeInteractive">
         {`
           (function() {

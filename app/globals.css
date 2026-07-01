@@ -17,9 +17,9 @@ html.lenis {
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-arimo);
-  --font-sans: var(--font-arimo), 'Arimo Fallback';
-  --font-mono: 'Arimo', 'Arimo Fallback';
+  --font-heading: var(--font-manrope);
+  --font-sans: var(--font-manrope), 'Manrope Fallback';
+  --font-mono: 'Manrope', 'Manrope Fallback';
   --font-roboto: 'Roboto', 'Roboto Fallback';
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -262,4 +262,14 @@ textarea {
 
 .smooth-scroll {
   scroll-behavior: smooth;
+}
+
+#home, #loader_bg{
+  background-image: url('/banner_bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#loader_bg{
+  background-color: var(--color-background);
 }
