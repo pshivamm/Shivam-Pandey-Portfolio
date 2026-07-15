@@ -1,133 +1,46 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-
-const SLIDER_IMAGES = [
-  '/slider/Blockchain cover.png',
-  '/slider/Beauty Banner.png',
-  '/slider/pixora cover.png',
-  '/slider/pet cover.png',
-  '/slider/swimsuit banner.png',
-  '/slider/Christmas post thumbnail.png',
-  '/slider/travel cover.png',
-  '/slider/Shipping cover.png',
-  '/slider/Estara Banner Cover.png',
-  '/slider/eco clean liquids cover.png',
-]
+import { motion } from 'framer-motion'
 
 export function Banner() {
-  const [mounted, setMounted] = useState(false)
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    const delay = window.innerWidth < 768 ? 5000 : 3000
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDER_IMAGES.length)
-    }, delay)
-    return () => clearInterval(interval)
-  }, [])
-
-  if (!mounted) return null
-
-  const slider = (
-    <div className="relative overflow-hidden rounded-lg">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -30 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-        >
-          <Image
-            src={SLIDER_IMAGES[currentSlide]}
-            alt=""
-            width={180}
-            height={65}
-            className="w-full h-full object-contain rounded-lg"
-          />
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  )
 
   return (
     <section
       id="home"
-      className="md:min-h-screen relative flex flex-col items-center justify-center pt-40 md:pt-10 pb-30 md:pb-0 px-6 relative overflow-hidden"
+      className="md:pt-35 pt-24 pb-10 md:pb-10 px-6 overflow-hidden min-h-screen"
     >
-      <div className="w-full text-center relative z-10">
-        {/* Mobile: split name */}
-        <div className="md:hidden">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-6xl font-bold tracking-tight mb-3 text-balance"
-          >
-            Shivam
-          </motion.h1>
+      <div className="max-w-7xl mx-auto flex flex-col justify-between relative z-10">
+          <div className="w-full">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-[clamp(3rem,15vw,11rem)] font-bold leading-36 mb-4 text-balance" style={{ fontFamily: 'var(--font-averia)' }}
+            >
+              Shivam Pandey
+            </motion.h1>
 
-          <div className="w-[180px] h-[50px] flex justify-center items-center mx-auto mb-3 overflow-hidden rounded-full">
-            {slider}
+            <motion.h4
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-2xl md:text-3xl lg:text-8xl font-medium mb-6 text-balance"
+            >
+              UI/UX Designer.
+            </motion.h4>
           </div>
 
-          <motion.h1
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-6xl font-bold tracking-tight mb-4 text-balance"
+            transition={{ delay: 0.4 }}
+            className="text-sm md:text-md text-foreground/100 max-w-full md:max-w-md ms-auto leading-relaxed text-balance"
           >
-            Pandey
-          </motion.h1>
-        </div>
+            I am a visual designer with a product mindset, passionate about crafting beautiful, minimalistic, and user-centric digital experiences. I love working at the intersection of design, research, strategy, and technology—from shaping the product vision to seeing it brought to life. I create interfaces that seamlessly combine aesthetics with functionality.
 
-        {/* Desktop: full name */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="hidden md:block text-8xl font-bold tracking-tight mb-4 text-balance"
-        >
-          Shivam Pandey
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="text-2xl md:text-3xl font-medium mb-6 text-balance"
-        >
-          UI/UX Designer
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-sm md:text-md text-foreground/100 max-w-full md:max-w-4xl mx-auto leading-relaxed text-balance mt-5 md:mt-30"
-        >
-          Crafting beautiful, minimalistic interfaces with smooth animations and attention to detail.
-          Specialized in creating user-centric designs that combine aesthetics with functionality.
-        </motion.p>
-
+          </motion.p>
       </div>
 
-      {/* Desktop: slider below content */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="hidden md:block w-[250px] h-[200px] absolute top-auto bottom-6 right-5 overflow-hidden mx-auto"
-        >
-          {slider}
-        </motion.div> */}
 
       <motion.div
         animate={{ y: [0, 8, 0] }}

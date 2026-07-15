@@ -48,21 +48,21 @@ export function WorkModal({ work, onClose }: WorkModalProps) {
             style={{ WebkitOverflowScrolling: 'touch' }}
             data-lenis-prevent
           >
-            <div className="min-h-full px-4 py-6 md:px-10 md:py-12">
+            <div className="min-h-full px-2 py-4 md:px-10 md:py-12">
               <div
                 onClick={(e) => e.stopPropagation()}
                 className="relative w-full max-w-5xl mx-auto bg-background rounded-[34px] border border-foreground/10 shadow-2xl"
               >
-                <div className="sticky top-6 z-60 flex justify-end px-4 md:px-5 pt-4 md:pt-5">
+                <div className="sticky top-4 z-60 flex justify-end px-4 md:px-5 pt-4 md:pt-5">
                   <button
                     onClick={onClose}
-                    className="p-3 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
+                    className="p-2 md:p-3 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors"
                   >
-                    <X size={20} />
+                    <X size={18} />
                   </button>
                 </div>
 
-                <div className="flex-1 flex flex-col gap-10 md:gap-12 pb-6 px-6 md:pb-16 md:px-18">
+                <div className="flex-1 flex flex-col gap-8 md:gap-12 pb-6 px-4 md:pb-16 md:px-18">
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}

@@ -1,10 +1,8 @@
 'use client'
 
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhoneAlt, FaInstagram, FaBehance } from 'react-icons/fa'
-import { FaB, FaI } from "react-icons/fa6";
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhoneAlt } from 'react-icons/fa'
 
 interface ContactModalProps {
   isOpen: boolean
@@ -59,7 +57,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl bg-background border rounded-[34px] border-foreground/10 rounded-5xl z-50 p-8 mb-10 md:p-12"
+            className="fixed inset-2 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl bg-background border rounded-[34px] border-foreground/10 rounded-5xl z-50 p-6 md:p-12 overflow-y-auto max-h-[98vh]"
             data-lenis-prevent
           >
             {/* Close Button */}
@@ -80,7 +78,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               className="text-left mb-10"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight">
-                Let&apos;s Connect
+                Let&apos;s <span style={{ fontFamily: 'var(--font-averia)' }}>Connect</span>
               </h2>
               <p className="text-sm md:text-md text-foreground/70">
                 Get in touch through any of these channels. I&apos;d love to hear from you!

@@ -11,15 +11,15 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
 
         {/* Main Section */}
-        <div className="flex flex-col md:flex-row items-bottom justify-between gap-6 md:gap-8 mb-10">
+        <div className="flex flex-col md:flex-row items-bottom justify-between gap-6 md:gap-8 mb-15">
           {/* Left - CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight whitespace-nowrap">
-              Do you like <br /> what you see?
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight md:whitespace-nowrap">
+              Do you like <br /> <span className='text-3xl md:text-5xl' style={{ fontFamily: 'var(--font-averia)' }}>what you see?</span>
             </h2>
           </motion.div>
 
@@ -126,7 +126,7 @@ export function Footer() {
           transition={{ duration: 0.8 }}
           className="mt-12 md:mt-20 -mx-6"
         >
-          <h2 className="text-[clamp(3rem,15vw,10.5rem)] font-bold tracking-tight leading-none text-foreground/20 select-none text-center uppercase">
+          <h2 className="text-[clamp(3rem,15vw,9.8rem)] font-bold tracking-tight leading-none text-foreground/20 select-none text-center uppercase" style={{ fontFamily: 'var(--font-averia)' }}>
             Shivam Pandey.
           </h2>
         </motion.div>

@@ -45,7 +45,7 @@ export function Works() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight mb-12 md:mb-16"
+          className="text-5xl md:text-7xl font-bold tracking-tight mb-12 md:mb-16" style={{ fontFamily: 'var(--font-averia)' }}
         >
           My Works.
         </motion.h2>
@@ -73,7 +73,7 @@ export function Works() {
                 >
                   <div className="flex flex-col h-full">
                     <div
-                      className={`relative overflow-hidden rounded-lg border border-foreground/5 bg-foreground/5 flex-1 ${isLarge ? 'h-96 md:h-96' : 'h-48'}`}
+                      className={`relative overflow-hidden rounded-lg border border-foreground/5 bg-foreground/5 flex-1 ${isLarge ? 'h-64 md:h-96' : 'h-40 md:h-48'}`}
                     >
                       <Image
                         src={work.image}

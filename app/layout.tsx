@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import './globals.css'
-import { Manrope, Roboto, Caveat } from 'next/font/google'
+import { Manrope, Roboto, Caveat, Averia_Serif_Libre } from 'next/font/google'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import { SmoothScroll } from '@/components/SmoothScroll'
 
@@ -27,6 +27,14 @@ const caveat = Caveat({
   display: 'swap',
 })
 
+const averia = Averia_Serif_Libre({
+  variable: '--font-averia',
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'Shivam Pandey - UI/UX Designer',
   description: 'Professional portfolio of Shivam Pandey, a UI/UX Designer specializing in minimalistic and animated designs.',
@@ -48,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${roboto.variable} ${caveat.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${manrope.variable} ${roboto.variable} ${caveat.variable} ${averia.variable}`} suppressHydrationWarning>
       <Script id="theme-init" strategy="beforeInteractive">
         {`
           (function() {
