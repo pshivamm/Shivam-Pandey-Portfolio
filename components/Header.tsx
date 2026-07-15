@@ -78,7 +78,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-background/80">
-      <nav className="max-w-7xl mx-auto px-6 py-4 md:py-6 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 py-5 md:py-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="tracking-tight text-xl md:text-2xl font-semibold">
           ❋ Shivam Pandey.
@@ -125,21 +125,23 @@ export function Header() {
 
       {/* Mobile Nav Overlay */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 top-[60px] bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-6">
-          {NAV_ITEMS.map((section) => (
-            <a
-              key={section}
-              href={`#${section}`}
-              onClick={() => handleNavClick(section)}
-              className={`text-2xl font-medium transition-colors ${
-                activeSection === section
-                  ? 'text-foreground'
-                  : 'text-foreground/50 hover:text-foreground'
-              }`}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </a>
-          ))}
+        <div className="md:hidden absolute left-0 right-0 top-full bg-background z-40 flex flex-col items-center justify-center gap-8 px-4 py-6 mt-3 mx-6 rounded-2xl">
+          <div className="flex flex-col items-center w-full max-w-xs">
+            {NAV_ITEMS.map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                onClick={() => handleNavClick(section)}
+                className={`w-full text-center py-3.5 rounded-xl text-md font-medium transition-all duration-300 ${
+                  activeSection === section
+                    ? 'bg-foreground text-background shadow-sm'
+                    : 'text-foreground/60 hover:bg-foreground/10'
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            ))}
+          </div>
         </div>
       )}
     </header>
