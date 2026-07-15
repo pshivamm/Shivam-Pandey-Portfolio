@@ -126,7 +126,7 @@ export function Footer() {
           transition={{ duration: 0.8 }}
           className="mt-12 md:mt-20 -mx-6"
         >
-          <h2 className="text-[clamp(3rem,15vw,10rem)] font-bold tracking-tight leading-none text-foreground/20 select-none text-center uppercase">
+          <h2 className="text-[clamp(3rem,15vw,10.5rem)] font-bold tracking-tight leading-none text-foreground/20 select-none text-center uppercase">
             Shivam Pandey.
           </h2>
         </motion.div>

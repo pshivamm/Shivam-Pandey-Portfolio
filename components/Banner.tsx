@@ -120,14 +120,14 @@ export function Banner() {
       </div>
 
       {/* Desktop: slider below content */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           className="hidden md:block w-[250px] h-[200px] absolute top-auto bottom-6 right-5 overflow-hidden mx-auto"
         >
           {slider}
-        </motion.div>
+        </motion.div> */}
 
       <motion.div
         animate={{ y: [0, 8, 0] }}

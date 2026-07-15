@@ -217,7 +217,7 @@ export function About() {
         >
           <button
             onClick={() => setShowContact(true)}
-            className="px-12 py-5 md:mb-5 text-2xl sm:text-4xl md:text-6xl bg-foreground text-background font-bold rounded-full hover:opacity-80 transition-opacity clickable inline-block"
+            className="px-12 py-5 md:mb-5 text-xl sm:text-2xl md:text-4xl bg-foreground text-background font-bold rounded-full hover:opacity-80 transition-opacity clickable inline-block"
           >
             Let&apos;s Talk
           </button>

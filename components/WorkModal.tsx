@@ -22,9 +22,9 @@ export function WorkModal({ work, onClose }: WorkModalProps) {
 
   const publishDate = work
     ? new Date(work.publishedOn * 1000).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-      })
+      year: 'numeric',
+      month: 'short',
+    })
     : ''
 
   return (
@@ -70,7 +70,7 @@ export function WorkModal({ work, onClose }: WorkModalProps) {
                     className="pr-12"
                   >
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="px-3 py-1 rounded-xl bg-foreground/10 text-sm font-medium">
+                      <span className="px-3 py-1 rounded-sm bg-foreground/10 text-xs font-medium">
                         {publishDate}
                       </span>
                     </div>
@@ -79,34 +79,44 @@ export function WorkModal({ work, onClose }: WorkModalProps) {
                       {work.title}
                     </h2>
 
-                    {work.tags?.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {work.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-3 py-1 rounded-lg bg-foreground/5 text-xs font-medium"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    <div className="flex items-start justify-between gap-4 mb-6">
 
-                    {work.tools?.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {work.tools.map((tool) => (
-                          <span
-                            key={tool}
-                            className="px-3 py-1 rounded-lg bg-foreground/10 text-xs font-semibold"
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                      {work.tools?.length > 0 && (
+                        <div className="flex items-center flex-wrap gap-2">
+                          <span className='text-xs font-semibold text-foreground/70'>Tools:</span>
+                          <div className="flex items-center flex-wrap gap-2">
+                            {work.tools.map((tool) => (
+                              <span
+                                key={tool}
+                                className="px-3 py-1 rounded-md bg-foreground/10 text-xs font-semibold"
+                              >
+                                {tool}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {work.tags?.length > 0 && (
+                        <div className="flex items-center flex-wrap gap-2">
+                          <span className='text-xs font-semibold text-foreground/70'>Tags:</span>
+                          <div className="flex items-center flex-wrap gap-2">
+                            {work.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-3 py-1 rounded-md bg-foreground/10 text-xs font-semibold"
+                              >
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                    </div>
 
                     {work.description && (
-                      <p className="text-sm md:text-base text-foreground/70 leading-relaxed max-w-4xl mb-6">
+                      <p className="text-sm text-foreground/70 leading-relaxed max-w-4xl mb-6">
                         {work.description}
                       </p>
                     )}
@@ -143,8 +153,6 @@ export function WorkModal({ work, onClose }: WorkModalProps) {
                       </div>
                     </motion.div>
                   )}
-
-                  <div className="h-1" />
                 </div>
               </div>
             </div>

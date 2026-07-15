@@ -55,7 +55,7 @@ export function Works() {
         ) : projects.length === 0 ? (
           <div className="text-center text-foreground/50 py-20">No projects found</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {projects.map((work, index) => {
               const isLarge = index === 0
 
@@ -73,7 +73,7 @@ export function Works() {
                 >
                   <div className="flex flex-col h-full">
                     <div
-                      className={`relative overflow-hidden bg-foreground/5 flex-1 ${isLarge ? 'h-96 md:h-96' : 'h-48'}`}
+                      className={`relative overflow-hidden rounded-lg border border-foreground/5 bg-foreground/5 flex-1 ${isLarge ? 'h-96 md:h-96' : 'h-48'}`}
                     >
                       <Image
                         src={work.image}
@@ -85,25 +85,26 @@ export function Works() {
                     </div>
 
                     <div className="py-3 md:py-4">
-                      <h3 className="font-bold mb-2 tracking-tight text-2xl">
-                        {work.title}
-                      </h3>
-                      {work.description && (
-                        <p className="text-xs text-foreground/70 line-clamp-2 mb-2">
-                          {work.description}
-                        </p>
-                      )}
                       {work.tools?.length > 0 && (
                         <div className="flex flex-wrap gap-1.5">
                           {work.tools.map((tool) => (
                             <span
                               key={tool}
-                              className="px-2 py-0.5 bg-foreground/10 rounded text-[10px] font-medium"
+                              className="px-2 py-0.5 bg-foreground/10 rounded text-xs font-medium"
                             >
                               {tool}
                             </span>
                           ))}
                         </div>
+                      )}
+
+                      <h3 className="font-bold mb-2 tracking-tight text-xl mt-1">
+                        {work.title}
+                      </h3>
+                      {work.description && (
+                        <p className="text-xs text-foreground/70 line-clamp-2 mb-2 hidden">
+                          {work.description}
+                        </p>
                       )}
                     </div>
                   </div>
