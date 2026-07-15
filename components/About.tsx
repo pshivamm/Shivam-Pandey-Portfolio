@@ -29,7 +29,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-8 md:mb-16 text-balance"
         >
-          <span className='text-3xl md:text-5xl text-foreground/50'>Hello there. I&apos;m</span> <br /> <span style={{ fontFamily: 'var(--font-averia)' }}>Shivam Pandey</span>.
+          <span className='text-3xl md:text-5xl text-foreground/50'>Hello there. I&apos;m</span> <br /> <span style={{ fontFamily: 'var(--font-averia)' }}>✦ Shivam Pandey</span>.
         </motion.h2>
 
         {/* About Content */}

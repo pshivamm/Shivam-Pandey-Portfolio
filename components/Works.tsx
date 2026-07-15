@@ -47,7 +47,7 @@ export function Works() {
           transition={{ duration: 0.6 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-12 md:mb-16" style={{ fontFamily: 'var(--font-averia)' }}
         >
-          My Works.
+          ✦ My Works & Live Projects.
         </motion.h2>
 
         {loading ? (

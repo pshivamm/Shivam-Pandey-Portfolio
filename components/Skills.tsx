@@ -51,7 +51,7 @@ export function Skills() {
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 md:gap-20">
         {/* Title column */}
-        <div className="md:w-[30%] md:sticky md:top-32 md:self-start">
+        <div className="md:w-[35%] md:sticky md:top-32 md:self-start">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,12 +59,12 @@ export function Skills() {
             className="text-5xl md:text-7xl font-bold tracking-tight text-balance"
             style={{ fontFamily: 'var(--font-averia)' }}
           >
-            What I am<br />good at
+            ✦ What I am good at.
           </motion.h2>
         </div>
 
         {/* Accordion column */}
-        <div className="md:w-[70%] space-y-4 border-t border-foreground/10 pt-3">
+        <div className="md:w-[65%] space-y-4 border-t border-foreground/10 pt-3">
           {SKILLS.map((skill, index) => {
             const isOpen = openIndex === index
 

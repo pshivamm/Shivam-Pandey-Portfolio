@@ -53,10 +53,10 @@ export function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl md:text-7xl text-center font-bold tracking-tight mb-20"
+          className="text-5xl md:text-7xl font-bold tracking-tight mb-20"
           style={{ fontFamily: 'var(--font-averia)' }}
         >
-          Professional Experience.
+          ✦ Professional Experience.
         </motion.h2>
 
           <div className="relative">

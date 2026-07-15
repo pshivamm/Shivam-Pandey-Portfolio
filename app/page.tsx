@@ -8,12 +8,9 @@ import { Works } from '@/components/Works'
 import { About } from '@/components/About'
 import { Experience } from '@/components/Experience'
 import { Footer } from '@/components/Footer'
-import { CustomCursor } from '@/components/CustomCursor'
-
 export default function Home() {
   return (
     <>
-      <CustomCursor />
       <Header />
       <main className="bg-background text-foreground">
         <Banner />

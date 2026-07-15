@@ -43,7 +43,7 @@ export function Manifesto() {
 
   const [progress, setProgress] = useState(0)
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const p = Math.max(0, Math.min(1, (v - 0) / 0.8))
+    const p = Math.max(0, Math.min(1, (v - 0) / 0.6))
     setProgress(p)
   })
 
@@ -59,17 +59,16 @@ export function Manifesto() {
             className="text-3xl md:text-6xl lg:text-8xl italic font-bold text-foreground"
             style={{ fontFamily: 'var(--font-averia)' }}
           >
-            I Love
+            ✧ I Love
           </span>{' '}
           <WordReveal text={LOVE_TEXT} progress={progress} />
-        </p>
-
-        <p className="text-2xl md:text-4xl lg:text-6xl font-medium leading-normal text-balance">
+          <br />
+          <br />
           <span
             className="text-3xl md:text-6xl lg:text-8xl italic font-bold text-foreground"
             style={{ fontFamily: 'var(--font-averia)' }}
           >
-            I Hate
+            ✧I Hate
           </span>{' '}
           <WordReveal text={HATE_TEXT} progress={progress} />
         </p>
