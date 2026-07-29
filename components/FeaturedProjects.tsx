@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { FaGlobe } from 'react-icons/fa'
 
@@ -114,7 +115,7 @@ function ProjectCard({ project, data }: { project: ProjectData; data: ProjectDat
 
   return (
     <div className="flex-shrink-0 w-auto">
-      <div className="bg-foreground/5 rounded-2xl border border-foreground/10 overflow-hidden flex flex-col">
+      <div className="bg-foreground/5 rounded-2xl overflow-hidden flex flex-col">
         <div className="flex items-center justify-center p-6 h-[280px] md:h-[380px] bg-foreground/[0.02]">
           {project.type !== 'website' ? (
             data?.screenshots && data.screenshots.length > 0 ? (
@@ -194,14 +195,14 @@ export function FeaturedProjects() {
   return (
     <section className="pt-16 md:pt-20 px-6 bg-background border-t border-foreground/5 overflow-hidden">
       <div className="max-w-7xl mx-auto mb-8 md:mb-10">
-        <h2
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-12 md:mb-16" style={{ fontFamily: 'var(--font-averia)' }}
         >
           ✦ My Live Projects.
-        </h2>
+        </motion.h2>
       </div>
 
       <div className="relative w-full overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)' }}>
