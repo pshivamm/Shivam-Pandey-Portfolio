@@ -54,15 +54,16 @@ export async function GET(request: Request) {
         signal: AbortSignal.timeout(5000),
       })
       const pageHtml = await pageRes.text()
-      const screenshotMatches = [...pageHtml.matchAll(/srcset="([^"]+)"[^>]*class="we-screenshot-image/g)]
-      const screenshots: string[] = []
-      for (const m of screenshotMatches) {
-        const urls = m[1].split(',').map(s => s.trim().split(' ')[0])
-        if (urls[0]) screenshots.push(urls[0])
+      const re = /PurpleSource\d+\/v4\/[a-z0-9]+\/[a-z0-9]+\/[a-z0-9]+\/[a-z0-9-]+\/iPhone_\d+\.png/gi
+      const matched: string[] = []
+      let match
+      while ((match = re.exec(pageHtml)) !== null) {
+        matched.push(match[0])
       }
+      const screenshots = [...new Set(matched)].map(b => `https://is1-ssl.mzstatic.com/image/thumb/${b}/600x1300bb-60.jpg`)
 
       return Response.json({
-        screenshots: screenshots.slice(0, 6),
+        screenshots,
         icon: cachedIcon || '',
         title: app?.trackName || appId,
         type: 'appstore',
