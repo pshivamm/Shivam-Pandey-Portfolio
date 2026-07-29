@@ -5,23 +5,47 @@ import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 
 const ROLES = ['Web', 'Product', 'Graphic', 'Frontend']
 
-// ---- Cursor Image Trail config ----
 const TRAIL_IMAGES = [
   "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/8e0d22a8-ac82-4893-90d8-3403f80ec600/w=800",
-    "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/d6af07a0-4dc5-4de4-07b1-9d2ad6100000/w=800",
-    "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/c083d83a-f5a4-4434-989f-4eaa9bbe7500/w=800",
-    "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/93bad0e0-e2ab-4e21-de9c-4cb54b028f00/w=800",
-    "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/09a59a65-3c07-4500-f72c-68c824168c00/w=800",
+  "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/d6af07a0-4dc5-4de4-07b1-9d2ad6100000/w=800",
+  "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/c083d83a-f5a4-4434-989f-4eaa9bbe7500/w=800",
+  "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/93bad0e0-e2ab-4e21-de9c-4cb54b028f00/w=800",
+  "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/09a59a65-3c07-4500-f72c-68c824168c00/w=800",
 ]
 
-const TRAIL_CONFIG = {
-  imageWidth: 150,
-  imageHeight: 200,
-  radius: 8,
-  fit: 'cover' as 'cover' | 'contain',
-  position: 'center' as 'top' | 'center' | 'bottom',
-  frequency: 35, // 1-50, higher = images spawn more often
-  visibleFor: 1, // seconds an image stays fully visible before fading
+function useResponsiveConfig() {
+  const [config, setConfig] = useState({
+    imageWidth: 150,
+    imageHeight: 200,
+    radius: 8,
+    fit: 'cover' as 'cover' | 'contain',
+    position: 'center' as 'top' | 'center' | 'bottom',
+    frequency: 35,
+    visibleFor: 1,
+    disabled: false,
+  })
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth
+      const isTouch = 'ontouchstart' in window
+      setConfig({
+        imageWidth: w < 768 ? 0 : w < 1024 ? 100 : 150,
+        imageHeight: w < 768 ? 0 : w < 1024 ? 130 : 200,
+        radius: w < 768 ? 0 : w < 1024 ? 6 : 8,
+        fit: 'cover' as const,
+        position: 'center' as const,
+        frequency: w < 1024 ? 20 : 35,
+        visibleFor: 1,
+        disabled: isTouch || w < 768,
+      })
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
+  return config
 }
 
 const TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 }
@@ -34,8 +58,8 @@ interface TrailImage {
   state: 'entering' | 'exiting'
 }
 
-function useCursorTrail() {
-  const threshold = 200 - ((TRAIL_CONFIG.frequency - 1) * 199) / 49
+function useCursorTrail(config: ReturnType<typeof useResponsiveConfig>) {
+  const threshold = 200 - ((config.frequency - 1) * 199) / 49
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
@@ -43,6 +67,7 @@ function useCursorTrail() {
   const [activeImages, setActiveImages] = useState<TrailImage[]>([])
 
   const handleMouseMove = (event: React.MouseEvent) => {
+    if (config.disabled) return
     const rect = event.currentTarget.getBoundingClientRect()
     setMousePos({
       x: event.clientX - rect.left,
@@ -50,11 +75,13 @@ function useCursorTrail() {
     })
     setIsHovering(true)
   }
-  const handleMouseEnter = () => setIsHovering(true)
+  const handleMouseEnter = () => {
+    if (!config.disabled) setIsHovering(true)
+  }
   const handleMouseLeave = () => setIsHovering(false)
 
   useEffect(() => {
-    if (!isHovering) return
+    if (!isHovering || config.disabled) return
     const lastImage = activeImages[activeImages.length - 1]
     const distance = lastImage
       ? Math.hypot(mousePos.x - lastImage.x, mousePos.y - lastImage.y)
@@ -75,20 +102,21 @@ function useCursorTrail() {
       setActiveImages((prev) =>
         prev.map((img) => (img.id === newImage.id ? { ...img, state: 'exiting' } : img))
       )
-    }, TRAIL_CONFIG.visibleFor * 1000)
+    }, config.visibleFor * 1000)
 
     setTimeout(() => {
       setActiveImages((prev) => prev.filter((img) => img.id !== newImage.id))
-    }, TRAIL_CONFIG.visibleFor * 1000 + 2000)
+    }, config.visibleFor * 1000 + 2000)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mousePos, isHovering, currentImageIndex])
+  }, [mousePos, isHovering, currentImageIndex, config])
 
   return { activeImages, handleMouseMove, handleMouseEnter, handleMouseLeave }
 }
 
 export function Banner() {
   const [roleIndex, setRoleIndex] = useState(0)
-  const { activeImages, handleMouseMove, handleMouseEnter, handleMouseLeave } = useCursorTrail()
+  const config = useResponsiveConfig()
+  const { activeImages, handleMouseMove, handleMouseEnter, handleMouseLeave } = useCursorTrail(config)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -105,7 +133,6 @@ export function Banner() {
       onMouseLeave={handleMouseLeave}
       className="md:min-h-screen flex flex-col relative overflow-hidden px-6 pt-24 md:pt-35 pb-10 md:pb-10"
     >
-      {/* Cursor image trail layer */}
       {activeImages.map(({ id, slot, x, y, state }) => (
         <motion.div
           key={id}
@@ -113,29 +140,29 @@ export function Banner() {
             opacity: 0,
             scale: 0.5,
             filter: 'blur(10px)',
-            x: x - TRAIL_CONFIG.imageWidth / 2,
-            y: y - TRAIL_CONFIG.imageHeight / 2,
+            x: x - config.imageWidth / 2,
+            y: y - config.imageHeight / 2,
           }}
           animate={{
             opacity: state === 'entering' ? 1 : 0,
             scale: state === 'entering' ? 1 : 0.5,
             filter: state === 'entering' ? 'blur(0px)' : 'blur(10px)',
-            x: x - TRAIL_CONFIG.imageWidth / 2,
-            y: y - TRAIL_CONFIG.imageHeight / 2,
+            x: x - config.imageWidth / 2,
+            y: y - config.imageHeight / 2,
           }}
           transition={TRANSITION}
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: `${TRAIL_CONFIG.imageWidth}px`,
-            height: `${TRAIL_CONFIG.imageHeight}px`,
+            width: `${config.imageWidth}px`,
+            height: `${config.imageHeight}px`,
             backgroundImage: `url(${TRAIL_IMAGES[slot]})`,
-            backgroundSize: TRAIL_CONFIG.fit,
+            backgroundSize: config.fit,
             backgroundPosition:
-              TRAIL_CONFIG.fit === 'cover' ? `center ${TRAIL_CONFIG.position}` : 'center',
+              config.fit === 'cover' ? `center ${config.position}` : 'center',
             backgroundRepeat: 'no-repeat',
-            borderRadius: `${TRAIL_CONFIG.radius}px`,
+            borderRadius: `${config.radius}px`,
             pointerEvents: 'none',
             zIndex: 5,
           }}
