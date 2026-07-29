@@ -47,7 +47,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen py-20 md:py-32 px-6 bg-background"
+      className="min-h-screen py-20 md:py-32 px-6 bg-foreground/5"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 md:gap-20">
         {/* Title column */}

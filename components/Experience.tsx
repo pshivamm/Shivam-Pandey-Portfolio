@@ -47,7 +47,7 @@ export function Experience() {
   const [showContact, setShowContact] = useState(false)
 
   return (
-    <section id="experience" className="min-h-screen py-25 px-6 bg-background">
+    <section id="experience" className="min-h-screen py-25 px-6 bg-foreground/5">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

@@ -2,7 +2,9 @@
 
 import { Header } from '@/components/Header'
 import { Banner } from '@/components/Banner'
+import { FeaturedProjects } from '@/components/FeaturedProjects'
 import { Manifesto } from '@/components/Manifesto'
+import { Services } from '@/components/Services'
 import { Skills } from '@/components/Skills'
 import { Works } from '@/components/Works'
 import { About } from '@/components/About'
@@ -14,7 +16,9 @@ export default function Home() {
       <Header />
       <main className="bg-background text-foreground">
         <Banner />
+        <FeaturedProjects />
         <Manifesto />
+        <Services />
         <Works />
         <Skills />
         <About />

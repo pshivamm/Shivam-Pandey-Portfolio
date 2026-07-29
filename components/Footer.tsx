@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="pt-25 pb-2 px-6 bg-foreground/5 overflow-hidden">
+    <footer id="contact" className="pt-25 pb-2 px-6 overflow-hidden bg-black dark:bg-neutral-900 text-neutral-100 dark:text-neutral-200">
       <div className="max-w-7xl mx-auto">
 
         {/* Main Section */}
@@ -34,7 +34,7 @@ export function Footer() {
               href="https://www.linkedin.com/in/shivam-pandey-19b927249/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
+              className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-colors clickable group"
               aria-label="LinkedIn"
             >
               <FaLinkedin
@@ -46,8 +46,8 @@ export function Footer() {
               href="https://www.instagram.com/synctouch.uiux"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
-              aria-label="LinkedIn"
+              className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-colors clickable group"
+              aria-label="Instagram"
             >
               <FaInstagram
                 size={20}
@@ -58,8 +58,8 @@ export function Footer() {
               href="https://www.behance.net/shivampandey69"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
-              aria-label="LinkedIn"
+              className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-colors clickable group"
+              aria-label="Behance"
             >
               <FaBehance
                 size={20}
@@ -70,7 +70,7 @@ export function Footer() {
               href="https://github.com/pshivamm"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
+              className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-colors clickable group"
               aria-label="GitHub"
             >
               <FaGithub
@@ -80,7 +80,7 @@ export function Footer() {
             </a>
             <a
               href="mailto:shivampandey.self@gmail.com"
-              className="p-2.5 bg-background hover:bg-foreground/5 border border-foreground/20 rounded-xl transition-colors clickable group"
+              className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-colors clickable group"
               aria-label="Email"
             >
               <FaEnvelope
@@ -99,7 +99,7 @@ export function Footer() {
             className="flex items-center justify-start md:justify-end"
           >
             <div className="text-left md:text-right">
-              <p className="text-sm text-foreground/60 mb-2">Address</p>
+              <p className="text-sm text-neutral-100/60 mb-2">Address</p>
               <p className="text-lg font-medium text-balance">
                 Sector 71, Mohali <br />
                 Punjab, India 123456
@@ -113,7 +113,7 @@ export function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="md:flex justify-between items-center text-xs text-foreground/60"
+          className="md:flex justify-between items-center text-xs text-neutral-100/60"
         >
           <p className='mb-2 md:mb-0'> &copy; All rights reserved. {currentYear}</p>
           <p>Designed & Built by Shivam Pandey.</p>
@@ -126,7 +126,7 @@ export function Footer() {
           transition={{ duration: 0.8 }}
           className="mt-12 md:mt-20 -mx-6"
         >
-          <h2 className="text-[clamp(3rem,15vw,9.8rem)] font-bold tracking-tight leading-none text-foreground/20 select-none text-center uppercase" style={{ fontFamily: 'var(--font-averia)' }}>
+          <h2 className="text-[clamp(3rem,15vw,9.8rem)] font-bold tracking-tight leading-none text-neutral-100/10 select-none text-center uppercase" style={{ fontFamily: 'var(--font-averia)' }}>
             Shivam Pandey.
           </h2>
         </motion.div>

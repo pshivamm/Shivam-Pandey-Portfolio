@@ -20,7 +20,7 @@ export function About() {
   const [showContact, setShowContact] = useState(false)
 
   return (
-    <section id="about" className="min-h-screen py-25 px-6 bg-foreground/5">
+    <section id="about" className="min-h-screen py-25 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Main Title */}
         <motion.h2

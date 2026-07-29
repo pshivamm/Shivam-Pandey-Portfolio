@@ -176,6 +176,7 @@ html.lenis {
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
@@ -192,6 +193,14 @@ html.lenis {
   scroll-behavior: smooth;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 #home, #loader_bg{
   background-image: url('/banner_bg.png');
   background-size: cover;
@@ -206,4 +215,9 @@ html.lenis {
 
 #loader_bg{
   background-color: var(--color-background);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

@@ -1,7 +1,6 @@
 'use client'
 
-import { useScroll, useMotionValueEvent } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const LOVE_TEXT =
   'transforming ideas into intuitive digital experiences, crafting clean and accessible interfaces, solving real user problems, building side projects, learning emerging technologies, collaborating with passionate people, and paying attention to every pixel.'
@@ -11,12 +10,11 @@ const HATE_TEXT =
 
 function WordReveal({ text, progress }: { text: string; progress: number }) {
   const words = text.split(' ')
-  const total = words.length
 
   return (
     <>
       {words.map((word, i) => {
-        const threshold = i / total
+        const threshold = i / words.length
         const opacity = progress >= threshold
           ? Math.min(1, 0.2 + (progress - threshold) * 8)
           : 0.2
@@ -26,7 +24,7 @@ function WordReveal({ text, progress }: { text: string; progress: number }) {
             className="inline"
             style={{ color: `color-mix(in oklab, var(--foreground) ${opacity * 100}%, transparent)` }}
           >
-            {word}{i < total - 1 ? ' ' : ''}
+            {word}{i < words.length - 1 ? ' ' : ''}
           </span>
         )
       })}
@@ -36,42 +34,50 @@ function WordReveal({ text, progress }: { text: string; progress: number }) {
 
 export function Manifesto() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-
   const [progress, setProgress] = useState(0)
-  useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const p = Math.max(0, Math.min(1, (v - 0) / 0.6))
-    setProgress(p)
-  })
+
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      const sectionTop = rect.top
+      const sectionHeight = rect.height
+      const totalScroll = sectionHeight + vh
+      const scrolled = vh - sectionTop
+      const raw = Math.max(0, Math.min(1, scrolled / (totalScroll * 0.6)))
+      setProgress(raw)
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const loveProgress = Math.min(1, progress * 2)
+  const hateProgress = Math.max(0, Math.min(1, (progress - 0.5) * 2))
 
   return (
-    <section
-      ref={sectionRef}
-      id="manifesto"
-      className="min-h-screen py-20 md:py-32 px-6 bg-background"
-    >
-      <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
-        <p className="text-2xl md:text-4xl lg:text-6xl font-medium leading-normal text-balance">
-          <span
-            className="text-3xl md:text-6xl lg:text-8xl italic font-bold text-foreground"
-            style={{ fontFamily: 'var(--font-averia)' }}
-          >
+    <section ref={sectionRef} id="manifesto" className="min-h-screen py-20 md:py-32 px-6 bg-background">
+      <div className="max-w-7xl mx-auto space-y-12 md:space-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-averia)' }}>
             ✧ I Love
-          </span>{' '}
-          <WordReveal text={LOVE_TEXT} progress={progress} />
-          <br />
-          <br />
-          <span
-            className="text-3xl md:text-6xl lg:text-8xl italic font-bold text-foreground"
-            style={{ fontFamily: 'var(--font-averia)' }}
-          >
-            ✧I Hate
-          </span>{' '}
-          <WordReveal text={HATE_TEXT} progress={progress} />
-        </p>
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium leading-normal text-balance">
+            <WordReveal text={LOVE_TEXT} progress={loveProgress} />
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-averia)' }}>
+            ✧ I Hate
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium leading-normal text-balance">
+            <WordReveal text={HATE_TEXT} progress={hateProgress} />
+          </p>
+        </div>
       </div>
     </section>
   )
