@@ -48,7 +48,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/20 z-50 backdrop-blur-sm"
           />
 
           {/* Modal */}
@@ -57,7 +57,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed inset-2 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl bg-background border rounded-[34px] border-foreground/10 rounded-5xl z-50 p-6 md:p-12 overflow-y-auto max-h-[98vh]"
+            className="fixed inset-2 md:inset-auto md:left-1/2 top-1/2 md:top-1/2 md:-translate-x-1/2 -translate-y-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl bg-background border rounded-[34px] border-foreground/10 rounded-5xl z-50 p-6 md:p-12 overflow-y-auto h-fit md:h-auto md:min-h-screen"
             data-lenis-prevent
           >
             {/* Close Button */}

@@ -138,7 +138,7 @@ function ProjectCard({ project, data }: { project: ProjectData; data: ProjectDat
           )}
         </div>
 
-        <div className="flex items-center gap-3 px-4 md:px-5 py-3 md:py-4 border-t border-foreground/10">
+        <div className="flex items-center gap-3 px-4 md:px-5 py-3 md:py-4 border-t border-foreground/5">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg overflow-hidden bg-foreground/10 flex-shrink-0">
             {data?.icon ? (
               <img src={data.icon} alt={project.name} className="w-full h-full object-cover" />

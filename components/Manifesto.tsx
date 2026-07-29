@@ -60,7 +60,7 @@ export function Manifesto() {
   const hateProgress = Math.max(0, Math.min(1, (progress - 0.5) * 2))
 
   return (
-    <section ref={sectionRef} id="manifesto" className="min-h-screen py-20 md:py-32 px-6 bg-background">
+    <section ref={sectionRef} id="manifesto" className="py-20 md:py-32 px-6 bg-background">
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-averia)' }}>

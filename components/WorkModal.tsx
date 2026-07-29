@@ -36,7 +36,7 @@ export function WorkModal({ work, onClose }: WorkModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/20 z-50 backdrop-blur-sm"
           />
 
           <motion.div

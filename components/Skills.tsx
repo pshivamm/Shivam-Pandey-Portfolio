@@ -74,14 +74,14 @@ export function Skills() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border-b border-foreground/10 pt-5 pb-8"
+                className="border-b border-foreground/10 pt-1 pb-4 md:pt-5 md:pb-8"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between text-left group cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-xl md:text-2xl lg:text-4xl font-medium tracking-tight">
+                  <span className="text-lg md:text-2xl lg:text-4xl font-medium tracking-tight">
                     {skill.title}
                   </span>
                   <motion.span

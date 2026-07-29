@@ -91,11 +91,10 @@ export function Header() {
               key={section}
               href={`#${section}`}
               onClick={() => handleNavClick(section)}
-              className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                activeSection === section
+              className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${activeSection === section
                   ? 'bg-foreground text-background shadow-sm'
                   : 'hover:bg-foreground/10'
-              }`}
+                }`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </a>
@@ -111,6 +110,12 @@ export function Header() {
           >
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
           </button>
+
+          <a href='tel:+91 6307989801'
+            className="hidden md:block px-4 py-1.5 rounded-full border border-foreground/20 hover:text-foreground text-sm bg-foreground hover:bg-foreground/5 text-background transition-all duration-300"
+          >
+            connect
+          </a>
 
           {/* Mobile menu button */}
           <button
@@ -132,15 +137,19 @@ export function Header() {
                 key={section}
                 href={`#${section}`}
                 onClick={() => handleNavClick(section)}
-                className={`w-full text-center py-3.5 rounded-xl text-md font-medium transition-all duration-300 ${
-                  activeSection === section
+                className={`w-full text-center py-3.5 rounded-xl text-md font-medium transition-all duration-300 ${activeSection === section
                     ? 'bg-foreground text-background shadow-sm'
                     : 'text-foreground/60 hover:bg-foreground/10'
-                }`}
+                  }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>
             ))}
+            <a href='tel:+91 6307989801'
+            className="w-full px-4 py-2.5 text-center rounded-full border border-foreground/20 hover:text-foreground text-md bg-foreground hover:bg-foreground/5 text-background transition-all duration-300"
+          >
+            connect
+          </a>
           </div>
         </div>
       )}
